@@ -76,7 +76,8 @@
   ; 需要联系上下文和请求参数才能干活啊? 要配置信息? 要数据库信息?...
   (defn mk-event-handler
     [context]
-    event-handler)
+    (fn [req]
+      (event-handler context req)))
 
   (routes (mk-event-handler {:cfg {} :db {}}))
   )
